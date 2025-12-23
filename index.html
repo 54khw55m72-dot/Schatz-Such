@@ -2,26 +2,37 @@
 <html lang="de">
 <head>
 <meta charset="UTF-8">
-<title>Geheimer Hinweis</title>
+<title>Schatz such!</title>
 <style>
-body { font-family: Arial; text-align: center; margin-top: 50px; }
-#video { display: none; }
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  margin-top: 50px;
+}
+
+/* WICHTIG: Bild wirklich verstecken */
+#bild {
+  display: none !important;
+}
+
+img {
+  max-width: 90%;
+}
 </style>
 </head>
 <body>
 
-<h2>Gibt den richtigen Code ein:</h2>
+<h2>Gib den richtigen Code ein</h2>
 
-<input type="password" id="pw" placeholder="Passwort">
+<input type="text" id="pw" placeholder="Passwort">
 <button onclick="check()">OK</button>
 
 <p id="msg" style="color:red;"></p>
 
 <div id="bild">
   <img src="bild.jpg" alt="Geheimer Hinweis">
-  <p>+180 Grad</p>
 </div>
-  
+
 <script>
 function check() {
   const gueltigePasswoerter = ["F40.0", "F40.1"];
@@ -31,7 +42,8 @@ function check() {
     document.getElementById("bild").style.display = "block";
     document.getElementById("msg").innerText = "";
   } else {
-    document.getElementById("msg").innerText = "Falsches Passwort!";
+    document.getElementById("msg").innerText = "Falsch!";
+    document.getElementById("bild").style.display = "none";
   }
 }
 </script>
