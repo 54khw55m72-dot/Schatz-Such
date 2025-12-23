@@ -20,13 +20,13 @@ body { font-family: Arial; text-align: center; margin-top: 50px; }
 <div id="bild">
   <img src="bild.jpg" alt="Geheimer Hinweis">
 </div>
-
+  
 <script>
 function check() {
-  const richtig = "SCHATZ";
-  const eingabe = document.getElementById("pw").value;
+  const gueltigePasswoerter = ["F40.0", "F40.1"];
+  const eingabe = document.getElementById("pw").value.trim();
 
-  if (eingabe === richtig) {
+  if (gueltigePasswoerter.includes(eingabe)) {
     document.getElementById("bild").style.display = "block";
     document.getElementById("msg").innerText = "";
   } else {
