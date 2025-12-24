@@ -101,6 +101,7 @@ function check() {
   if (gueltigePasswoerter.includes(eingabe)) {
     document.getElementById("nextHinweis").style.display = "block";
     document.getElementById("hideOnComplete").style.display = "none";
+    document.getElementById("hideOnComplete").style.height = 0px;
     document.getElementById("msg").innerText = "Richtig!";
   } else {
     document.getElementById("msg").innerText = "Falsch!";
@@ -125,6 +126,7 @@ function check() {
     if (lat === gueltigeLat && long === gueltigeLong) {
       document.getElementById("nextHinweis2").style.display = "block";
       document.getElementById("nextHinweis").style.display = "none";
+      document.getElementById("nextHinweis").style.height = 0px;
       document.getElementById("msg").innerText = "Richtig!";
       document.getElementById("msg2").innerText = "YOU DID IT";
     } else {
