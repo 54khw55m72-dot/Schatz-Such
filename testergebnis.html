@@ -45,6 +45,8 @@ body {
   <p>Du bist herzlich eingeladen dir mit mir ein Bild von uns auszuwählen, welches wir qualitativ Drucken und Rahmen lassen!</p>
 </div>
 
+  
+
 <script>
 function check() {
   const gueltigePasswoerter = ["Spontan, lebensfroh und immer für Überraschungen gut, das bist du, der Berliner. Du probierst gern Neues aus und nimmst das Leben nicht zu ernst. Mit dir wird es selten langweilig, auch wenn du nicht immer planst, was als Nächstes kommt. Wie ein Berliner bist du süß, ein bisschen unberechenbar und überall gern gesehen."];
@@ -76,6 +78,7 @@ function check() {
 
     if (lat === gueltigeLat && long === gueltigeLong) {
       document.getElementById("nextHinweis2").style.display = "block";
+      document.getElementById("nextHinweis").style.display = "none";
       document.getElementById("msg2").innerText = "YOU DID IT";
     } else {
       document.getElementById("msg").innerText = "Falsch!";
