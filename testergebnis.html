@@ -55,7 +55,7 @@ function check() {
   if (gueltigePasswoerter.includes(eingabe)) {
     document.getElementById("nextHinweis").style.display = "block";
     document.getElementById("hideOnComplete").style.display = "none";
-    document.getElementById("msg").innerText = "";
+    document.getElementById("msg").innerText = "Richtig!";
   } else {
     document.getElementById("msg").innerText = "Falsch!";
     document.getElementById("bild").style.display = "none";
@@ -71,6 +71,11 @@ function check() {
 
   // Annahme: Eingabe ist in Form "Lat,Long", z.B. "52.471,13.441"
   const teile = eingabe.split(",");
+
+   // Letzten drei Ziffern der Dezimalstellen entfernen
+    // Beispiel: "52.471123" → "52.471"
+    lat = lat.slice(0, lat.indexOf(".") + 4);
+    long = long.slice(0, long.indexOf(".") + 4);
   
   if (teile.length === 2) {
     const lat = teile[0].trim();
@@ -79,6 +84,7 @@ function check() {
     if (lat === gueltigeLat && long === gueltigeLong) {
       document.getElementById("nextHinweis2").style.display = "block";
       document.getElementById("nextHinweis").style.display = "none";
+      document.getElementById("msg").innerText = "Richtig!";
       document.getElementById("msg2").innerText = "YOU DID IT";
     } else {
       document.getElementById("msg").innerText = "Falsch!";
