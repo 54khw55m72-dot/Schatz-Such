@@ -79,7 +79,7 @@ body {
 <p id="msg" style="color:red;"></p>
 
 <div id="nextHinweis">
-  <p>Koordinateneingabe:</p>
+  <p>Koordinateneingabe (lasse die letzten drei Ziffern jeweils weg):</p>
   <input type="text" id="pw2" placeholder="Testergebnis">
   <button onclick="check2()">OK</button>
 </div>
@@ -117,11 +117,6 @@ function check() {
 
   // Annahme: Eingabe ist in Form "Lat,Long", z.B. "52.471,13.441"
   const teile = eingabe.split(",");
-
-   // Letzten drei Ziffern der Dezimalstellen entfernen
-    // Beispiel: "52.471123" → "52.471"
-    lat = lat.slice(0, lat.indexOf(".") + 4);
-    long = long.slice(0, long.indexOf(".") + 4);
   
   if (teile.length === 2) {
     const lat = teile[0].trim();
