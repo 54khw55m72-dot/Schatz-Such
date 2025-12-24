@@ -4,6 +4,50 @@
 <meta charset="UTF-8">
 <title>Schatz such!</title>
 <style>
+   body {
+    margin: 0;
+    background: #222;
+    color: white;
+    font-family: sans-serif;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+  }
+
+  h1 {
+    font-size: 3em;
+    text-align: center;
+    display: none;
+    animation: pop 1s ease-out forwards;
+  }
+
+  @keyframes pop {
+    0% { transform: scale(0); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+  }
+
+  .confetti {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    opacity: 0.8;
+    animation: fall 3s linear infinite;
+  }
+
+  @keyframes fall {
+    0% { transform: translateY(-50px) rotate(0deg); opacity: 1; }
+    100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+  }
+
+  button {
+    padding: 10px 20px;
+    font-size: 1.2em;
+    cursor: pointer;
+    margin-top: 20px;
+  }
 body {
   font-family: Arial, sans-serif;
   text-align: center;
@@ -41,8 +85,10 @@ body {
 </div>
 
 <div id="nextHinweis2">
+  <h1 id="gratulationText">🎉 Glückwunsch! 🎉</h1>
   <p>YOU DID IT!!!!</p>
   <p>Du bist herzlich eingeladen dir mit mir ein Bild von uns auszuwählen, welches wir qualitativ Drucken und Rahmen lassen!</p>
+  <button onclick="startAnimation()">YAY!</button>
 </div>
 
   
@@ -93,6 +139,24 @@ function check() {
     document.getElementById("msg").innerText = "Bitte im Format Lat,Long eingeben!";
   }
 }
+  function startAnimation() {
+  // Zeige den Text
+  const text = document.getElementById("gratulationText");
+  text.style.display = "block";
+
+  // Erstelle 100 Konfetti-Partikel
+  for(let i=0; i<100; i++){
+    let confetti = document.createElement("div");
+    confetti.classList.add("confetti");
+    confetti.style.background = `hsl(${Math.random()*360}, 100%, 50%)`;
+    confetti.style.left = `${Math.random()*100}vw`;
+    confetti.style.animationDuration = `${2 + Math.random()*3}s`;
+    confetti.style.width = `${5 + Math.random()*10}px`;
+    confetti.style.height = confetti.style.width;
+    document.body.appendChild(confetti);
+  }
+}
+
 </script>
 
 </body>
