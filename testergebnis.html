@@ -21,7 +21,7 @@ body {
 </head>
 <body>
 
-
+<div id="hideOnComplete">
 <h2>Werde zu JFK auf TesteDich.de </h2>
 <p></p>
 <href>https://www.testedich.de/persoenlichkeitstests/lebensmittel/andere-lebensmittel/quiz78/1766163257/welches-hefeteiggebaeck-bist-du</href>
@@ -30,7 +30,8 @@ body {
 
 <input type="text" id="pw" placeholder="Testergebnis">
 <button onclick="check()">OK</button>
-
+</div>
+  
 <p id="msg" style="color:red;"></p>
 
 <div id="nextHinweis">
@@ -51,6 +52,7 @@ function check() {
 
   if (gueltigePasswoerter.includes(eingabe)) {
     document.getElementById("nextHinweis").style.display = "block";
+    document.getElementById("hideOnComplete").style.display = "none";
     document.getElementById("msg").innerText = "";
   } else {
     document.getElementById("msg").innerText = "Falsch!";
