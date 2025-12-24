@@ -32,7 +32,13 @@ body {
 <p id="msg" style="color:red;"></p>
 
 <div id="nextHinweis">
-  <p></p>
+  <input type="text" id="pw2" placeholder="Testergebnis">
+  <button onclick="check2()">OK</button>
+</div>
+
+<div id="nextHinweis2">
+  <p>YOU DID IT!!!!</p>
+  <p>Du bist herzlich eingeladen dir mit mir ein Bild von uns auszuwählen, welches wir qualitativ Drucken und Rahmen lassen!</p>
 </div>
 
 <script>
@@ -46,6 +52,31 @@ function check() {
   } else {
     document.getElementById("msg").innerText = "Falsch!";
     document.getElementById("bild").style.display = "none";
+  }
+}
+  function check2() {
+  // Die gültigen festen Koordinaten
+  const gueltigeLat = "52.471";
+  const gueltigeLong = "13.441";
+
+  // Eingabe vom Benutzer
+  const eingabe = document.getElementById("pw2").value.trim();
+
+  // Annahme: Eingabe ist in Form "Lat,Long", z.B. "52.471,13.441"
+  const teile = eingabe.split(",");
+  
+  if (teile.length === 2) {
+    const lat = teile[0].trim();
+    const long = teile[1].trim();
+
+    if (lat === gueltigeLat && long === gueltigeLong) {
+      document.getElementById("nextHinweis2").style.display = "block";
+      document.getElementById("msg2").innerText = "YOU DID IT";
+    } else {
+      document.getElementById("msg").innerText = "Falsch!";
+    }
+  } else {
+    document.getElementById("msg").innerText = "Bitte im Format Lat,Long eingeben!";
   }
 }
 </script>
